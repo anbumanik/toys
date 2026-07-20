@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary:   #2563EB;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary: #F97316;
+  --color-secondary-dark: #ea6b0b;
+  --color-accent:    #FACC15;
+  --color-accent-dark: #eab308;
+  --color-bg:        #F8FAFC;
+  --color-card:      #FFFFFF;
+  --color-text:      #111827;
+  --color-muted:     #6B7280;
+  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #F8FAFC;
+  color: #111827;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+/* ── Keyframes ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+@keyframes heroProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+@keyframes bounceIn {
+  0%   { transform: scale(0.8) rotate(-3deg); opacity: 0; }
+  60%  { transform: scale(1.08) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.animate-fade-in-up  { animation: fadeInUp 0.6s ease-out both; }
+.animate-marquee     { animation: marquee 22s linear infinite; }
+.animate-marquee-reverse { animation: marquee-reverse 22s linear infinite; }
+.animate-bounce-in   { animation: bounceIn 0.5s ease-out both; }

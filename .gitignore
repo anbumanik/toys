@@ -1,0 +1,30 @@
+# ──────────────────────────────────────────────
+# Root .gitignore — ChildToysStore Project
+# ──────────────────────────────────────────────
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables (NEVER commit secrets)
+.env
+**/.env
+
+# Build output
+client/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Uploads (local media)
+server/uploads/*
+!server/uploads/.gitkeep
