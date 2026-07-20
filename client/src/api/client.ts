@@ -1,9 +1,13 @@
 import axios from 'axios';
 
+let backendUrl = (import.meta as any).env.VITE_API_URL || '/api';
+if (backendUrl.endsWith('/')) backendUrl = backendUrl.slice(0, -1);
+if (backendUrl !== '/api' && !backendUrl.endsWith('/api')) {
+  backendUrl += '/api';
+}
+
 const api = axios.create({
-  // In production (Vercel), VITE_API_URL = https://your-render-app.onrender.com/api
-  // In development, Vite proxy forwards /api → localhost:5000 automatically
-  baseURL: (import.meta as any).env.VITE_API_URL || '/api',
+  baseURL: backendUrl,
 });
 
 api.interceptors.request.use((config) => {
