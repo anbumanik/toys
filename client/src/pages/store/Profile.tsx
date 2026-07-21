@@ -1,6 +1,6 @@
 import { useAuth } from '../../context/AuthContext';
 import { User as UserIcon, Mail, Phone, Shield, LogOut, Edit2, Check, X } from 'lucide-react';
-import axios from 'axios';
+import api from '../../api/client';
 import { useState } from 'react';
 
 export default function Profile() {
@@ -18,7 +18,7 @@ export default function Profile() {
     if (!user) return;
     try {
       setIsSaving(true);
-      const res = await axios.put('/api/auth/profile', { phone: editPhoneValue });
+      const res = await api.put('/auth/profile', { phone: editPhoneValue });
       // Update AuthContext with new token and user
       login(res.data.token, res.data.user);
       setIsEditingPhone(false);

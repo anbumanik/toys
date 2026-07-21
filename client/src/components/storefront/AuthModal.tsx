@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../api/client';
 import { useAuth } from '../../context/AuthContext';
 import { X, Mail, Lock, User as UserIcon, Phone } from 'lucide-react';
 
@@ -27,7 +27,7 @@ export default function AuthModal() {
     setLoginError('');
     setIsLoggingIn(true);
     try {
-      const res = await axios.post('/api/auth/login', { email: loginEmail, password: loginPassword });
+      const res = await api.post('/auth/login', { email: loginEmail, password: loginPassword });
       login(res.data.token, res.data.user);
     } catch (err: any) {
       setLoginError(err.response?.data?.message || 'Failed to login');
@@ -41,7 +41,7 @@ export default function AuthModal() {
     setSignupError('');
     setIsSigningUp(true);
     try {
-      const res = await axios.post('/api/auth/signup', {
+      const res = await api.post('/auth/signup', {
         name: signupName,
         email: signupEmail,
         phone: signupPhone,
